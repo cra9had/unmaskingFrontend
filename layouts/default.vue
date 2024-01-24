@@ -18,7 +18,7 @@ export default {
   },
   data() {
     return {
-      pageLoading: false,
+      pageLoading: true,
       IsAuthenticated: false,
       UserDetails: {},
     };
