@@ -13,6 +13,7 @@
 import vueRecaptcha from 'vue3-recaptcha2';
 
 export default {
+  emits:['update:token'],
   props: {
     token: {
       type: String
