@@ -55,7 +55,7 @@
             {{ loginError }}
           </p>
         </div>
-<!--        <captcha class="g-recaptcha" v-model:token="loginCaptchaToken" ref="loginCaptcha"></captcha>-->
+        <captcha class="g-recaptcha" v-model:token="loginCaptchaToken" ref="loginCaptcha"></captcha>
 
         <button
             type="submit"
