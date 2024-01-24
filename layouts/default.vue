@@ -5,6 +5,8 @@
       :pageLoading="pageLoading"
       v-model:UserDetails="UserDetails"
   >
+
+
   </router-view>
 </template>
 
@@ -28,7 +30,7 @@ export default {
       const token = localStorage.getItem("token");
       if (!token) {
         this.IsAuthenticated = false;
-        this.pageLoading = false;
+        this.pageLoading = false
       } else {
         this.pageLoading = true;
         const response = await fetch(
@@ -53,6 +55,7 @@ export default {
   },
   async beforeMount() {
     await this.getUserDetails();
+    this.pageLoading = false
   },
 };
 </script>
