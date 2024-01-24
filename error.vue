@@ -34,6 +34,7 @@
 </template>
 
 <script>
+
 import Footer from "@/components/Footer.vue";
 import Navbar from "@/components/Navbar.vue";
 import BuyPopup from "@/components/BuyPopup.vue";
@@ -80,7 +81,7 @@ export default {
 </script>
 
 <script setup>
-
+import "./assets/styles/style.css"
 const handleError = () => clearError({ redirect: "/" });
 </script>
 

@@ -274,6 +274,7 @@ import BuySearch from "@/components/BuySearch.vue";
 import Faq from "@/components/faq/Faq.vue";
 
 export default {
+
   data() {
     return {
       searchStatus: 0, // 0 - Not searching, 1 - Search in progress, 2 - Found, 3 - Not Found

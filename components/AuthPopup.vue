@@ -156,6 +156,7 @@ import Captcha from '@/components/Captcha.vue';
 
 
 export default {
+  emits: ['auth'],
   components: {
     PasswordEye,
     Captcha

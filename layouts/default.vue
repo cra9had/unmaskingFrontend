@@ -1,6 +1,5 @@
 <template>
   <page-loader v-show="pageLoading"></page-loader>
-
   <router-view
     :IsAuthenticated="IsAuthenticated"
     :pageLoading="pageLoading"
@@ -8,52 +7,43 @@
   ></router-view>
 </template>
 
-<script>
+<script setup>
+import { ref , onBeforeUnmount } from "vue";
 import PageLoader from "@/components/PageLoader.vue";
 
-export default {
-  emits: ['auth'],
-  components: {
-    PageLoader,
-  },
-  data() {
-    return {
-      IsAuthenticated: false,
-      UserDetails: {},
-      pageLoading: false,
-    };
-  },
-  methods: {
-    async getUserDetails() {
-      const token = localStorage.getItem("token");
-      if (!token) {
-        this.IsAuthenticated = false;
-      } else {
-        this.pageLoading = true;
-        const response = await fetch(
-          this.$config.public.API_BASE_URL + "auth/user/",
-          {
-            headers: {
-              Authorization: "Token " + token,
-            },
-            method: "GET",
-          },
-        );
-        if (response.status === 200) {
-          this.UserDetails = await response.json();
-          this.IsAuthenticated = true;
-        } else {
-          this.IsAuthenticated = false;
-          localStorage.removeItem("token");
-        }
-        this.pageLoading = false;
-      }
-    },
-  },
-  async beforeMount() {
-    await this.getUserDetails();
-  },
+const IsAuthenticated = ref(false);
+const UserDetails = ref({});
+const pageLoading = ref(false);
+
+const getUserDetails = async () => {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    IsAuthenticated.value = false;
+  } else {
+    pageLoading.value = true;
+    const response = await fetch(
+      this.$config.public.API_BASE_URL + "auth/user/",
+      {
+        headers: {
+          Authorization: "Token " + token,
+        },
+        method: "GET",
+      },
+    );
+    if (response.status === 200) {
+      UserDetails.value = await response.json();
+      IsAuthenticated.value = true;
+    } else {
+      IsAuthenticated.value = false;
+      localStorage.removeItem("token");
+    }
+    pageLoading.value = false;
+  }
 };
+
+onBeforeUnmount(async () => {
+  await getUserDetails();
+});
 </script>
 
 <style>

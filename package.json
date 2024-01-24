@@ -10,7 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "nuxt": "^3.9.3",
+    "nuxt": "3.2.3",
     "nuxt-simple-sitemap": "^4.4.1",
     "vue": "^3.4.14",
     "vue-router": "^4.2.5"
@@ -19,7 +19,7 @@
     "@nuxtjs/robots": "^3.0.0",
     "axios": "^1.6.5",
     "prettier": "^3.2.4",
-    "vue3-recaptcha2": "^1.8.0",
-    "vuex": "^4.1.0"
+    "vue3-recaptcha2": "^1.8.0"
+
   }
 }

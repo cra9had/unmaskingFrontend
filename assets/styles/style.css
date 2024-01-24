@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+
+    padding: 0;
+    box-sizing: border-box;
+}
 html,
 body {
     min-height: 100vh;
@@ -212,6 +218,7 @@ body {
     font-size: 32px;
     line-height: 1.39;
     color: #fff;
+    text-decoration: none !important;
 }
 .header__wrapper {
     display: -webkit-box;
@@ -1225,8 +1232,8 @@ body {
     display: inline;
     opacity: 0.5;
     color: #ddd;
-    -webkit-text-decoration-line: underline;
-    text-decoration-line: underline;
+    -webkit-text-decoration-line: none;
+    text-decoration-line: none;
     -webkit-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
@@ -1847,7 +1854,7 @@ body {
 }
 .old-price, .select__title-price-old-price {
     color: #ddd;
-    text-decoration: line-through;
+    text-decoration: none;
     opacity: 0.5;
 }
 .select__label {
@@ -1906,7 +1913,7 @@ body {
 .not-found__button {
     display: block;
     width: 400px;
-    height: 56px;
+    height: auto;
     padding: 16px 10px;
 }
 .mobile-menu {

@@ -25,6 +25,7 @@
 
 <script>
 export default {
+  emits: ['updateData'],
   props: {
     warningPopupOpened: {
       type: Boolean,
