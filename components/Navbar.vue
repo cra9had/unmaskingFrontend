@@ -41,7 +41,7 @@
           style=""
           v-if="IsAuthenticated"
       >
-        <div class="darts" @click="this.$emit('openBuyPopup')">{{ UserDetails.available_searches }}</div>
+        <div class="darts" @click="$emit('openBuyPopup')">{{ UserDetails.available_searches }}</div>
         <nav class="menu">
           <button
               type="button"
@@ -99,6 +99,7 @@
 import AuthPopup from '@/components/AuthPopup.vue'
 
 export default {
+  emits: ['auth' , 'openBuyPopup'],
   data() {
     return {
       authPopupOpened: false,

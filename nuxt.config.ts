@@ -130,10 +130,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       API_BASE_URL:
-          process.env.API_BASE_URL || "https://unmasking.net/api/auth/",
+          process.env.API_BASE_URL || "https://unmasking.net/api/",
          },
-  },
-  globalProperties: {
-    $api_url: 'http://127.0.0.1:8000/api/',
   },
 })

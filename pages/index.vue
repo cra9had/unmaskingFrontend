@@ -1,6 +1,6 @@
 <template>
 
-  <navbar :IsAuthenticated="IsAuthenticated" v-if="!pageLoading" @auth="this.$emit('auth')" @openBuyPopup="openBuyPopup"
+  <navbar :IsAuthenticated="IsAuthenticated" v-if="!pageLoading" @auth="$emit('auth')" @openBuyPopup="openBuyPopup"
           :UserDetails="UserDetails" ref="navbar"><li class="header-left__item">
     <a
         href="#!"
@@ -281,7 +281,7 @@ export default {
       intervalId: null,
       warningPopupOpened: false,
       buyPopupOpened: false,
-      currentSearchPk: null
+      currentSearchPk: 0
     }
   },
   props: {
@@ -402,6 +402,10 @@ export default {
 </script>
 <script setup>
 name: "index"
+
+definePageMeta({
+  layout: "default",
+});
 </script>
 <style>
 

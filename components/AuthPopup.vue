@@ -1,14 +1,14 @@
 <template>
   <div class="popup-log popup" v-if="authPopupOpened">
     <div class="popup-log__content popup__content">
-      <button class="popup__close popup__close-log" @click="this.$emit('close')"></button>
+      <button class="popup__close popup__close-log" @click="$emit('close')"></button>
       <div class="popup-tab__inner">
         <h4 :class="{'popup__title': true, 'popup-tab': true, 'tab-1': true, 'popup-tab--active': loginTabOpened}"
-            @click="this.loginTabOpened=true">
+            @click="loginTabOpened=true">
           Вход
         </h4>
         <h4 :class="{'popup__title': true, 'popup-tab': true, 'tab-2': true, 'popup-tab--active': !loginTabOpened}"
-            @click="this.loginTabOpened=false"
+            @click="loginTabOpened=false"
         >Регистрация</h4>
       </div>
       <form
@@ -55,7 +55,7 @@
             {{ loginError }}
           </p>
         </div>
-        <captcha class="g-recaptcha" v-model:token="loginCaptchaToken" ref="loginCaptcha"></captcha>
+<!--        <captcha class="g-recaptcha" v-model:token="loginCaptchaToken" ref="loginCaptcha"></captcha>-->
 
         <button
             type="submit"
@@ -130,8 +130,8 @@
 
           />
           <password-eye @showPassword="showPassword"></password-eye>
-          <p class="errorpass" v-if="!(this.registerPassword === this.registerPasswordConfirm)
-                                                      && (this.registerPasswordConfirm !== '')">
+          <p class="errorpass" v-if="!(registerPassword === registerPasswordConfirm)
+                                                      && (registerPasswordConfirm !== '')">
             {{ registerPasswordConfirmError }}
           </p>
 

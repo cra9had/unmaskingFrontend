@@ -18,6 +18,8 @@
   "dependencies": {
     "@nuxtjs/robots": "^3.0.0",
     "axios": "^1.6.5",
-    "vue3-recaptcha2": "^1.8.0"
+    "prettier": "^3.2.4",
+    "vue3-recaptcha2": "^1.8.0",
+    "vuex": "^4.1.0"
   }
 }

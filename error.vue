@@ -1,5 +1,5 @@
 <template>
-  <navbar :IsAuthenticated="IsAuthenticated" v-if="!pageLoading" @auth="this.$emit('auth')" @openBuyPopup="openBuyPopup"
+  <navbar :IsAuthenticated="IsAuthenticated" v-if="!pageLoading" @auth="$emit('auth')" @openBuyPopup="openBuyPopup"
           :UserDetails="UserDetails" ref="navbar"></navbar>
   <main>
     <section class="not-found">

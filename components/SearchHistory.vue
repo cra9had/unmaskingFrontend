@@ -237,7 +237,7 @@ export default {
       buyPopupOpened: false,
       offset: 0,
       limit: 10,
-      currentSearchPk: null,
+      currentSearchPk: 0,
       nextExist: true,
       searches: [
 
