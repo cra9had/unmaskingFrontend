@@ -142,7 +142,7 @@ export default {
         },
       });
       localStorage.removeItem("token");
-      this.onAuth();
+      // this.onAuth();
       window.location.reload();
       if (this.mobileMenuOpened) {
         this.toggleMobileMenu();

@@ -83,7 +83,7 @@
 import PhoneInput from "@/components/PhoneInput.vue";
 import DateInput from "@/components/DateInput.vue";
 export default {
-  emits:["search"],
+  emits:["search" , "update:currentSearchType"],
   data() {
     return {
       phoneNumber: "",
