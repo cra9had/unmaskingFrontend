@@ -49,7 +49,7 @@
   <buy-popup v-model:buy-popup-opened="buyPopupOpened"></buy-popup>
 
 
-  <Footer style="position: fixed; bottom: 0; right: 0; left: 0;" ></Footer>
+  <Footer></Footer>
 </template>
 
 <script>
