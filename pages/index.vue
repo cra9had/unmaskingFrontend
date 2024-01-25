@@ -79,7 +79,7 @@
     <section class="result" v-if="searchStatus !== 0">
       <div class="container result__container">
         <h4 class="result__title" v-if="searchStatus !== 0">
-          Результаты поиска <span v-if="this.currentSearchType===0">по номеру {{ this.$refs.searchInput.phoneNumber }}</span>
+          Результаты поиска <span v-if="currentSearchType===0">по номеру {{ $refs.searchInput.phoneNumber }}</span>
         </h4>
         <searching-loader v-show="searchStatus === 1" ref="searchingLoader"></searching-loader>
         <section class="result__notfound" v-if="searchStatus===3">
@@ -91,7 +91,7 @@
           <p class="result__notfound-title">
             Ничего не найдено, попробуйте изменить данные
           </p>
-          <button class="button result__notfound-button" @click="this.$refs.navbar.scroll()">
+          <button class="button result__notfound-button" @click="$refs.navbar.scroll()">
             Попробовать еще
           </button>
         </section>

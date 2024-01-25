@@ -143,7 +143,6 @@ export default {
       });
       localStorage.removeItem("token");
       this.onAuth();
-      this.IsAuthenticated = false;
       window.location.reload();
       if (this.mobileMenuOpened) {
         this.toggleMobileMenu();
