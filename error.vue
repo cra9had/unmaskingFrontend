@@ -30,7 +30,8 @@
     </section>
   </main>
   <buy-popup v-model:buy-popup-opened="buyPopupOpened"></buy-popup>
-  <Footer ></Footer>
+  <Footer style="position: absolute; bottom: 0; right: 0; left: 0;" ></Footer>
+
 </template>
 
 <script>
