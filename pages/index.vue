@@ -31,12 +31,16 @@
             src="@/assets/img/right-mask.webp"
             alt="маска"
         />
-        <h2 class="home-default__title">Unmasking</h2>
-        <h1 class="home-default__subtitle">
-          Unmasking - это уникальный проект, в котором Вы можете
-          найти подробную информацию о человеке по его номеру и не
-          только. В нашей базе только лица из РФ
-        </h1>
+        <h1 class="home-default__title">Кто звонил?</h1>
+        <h2 class="home-default__subtitle">
+          Определите звонившего по номеру телефона за пару минут
+        </h2>
+        <p class="home-default__text">
+          Неизвестные номера часто вызывают у нас беспокойство.
+          Если вы хотите узнать, кто звонил, воспользуйтесь нашим
+          сервисом проверки. Обширная база данных позволит вам
+          быстро и легко определить, кому он принадлежит.
+        </p>
         <search-input v-model:currentSearchType="currentSearchType" @search="search" ref="searchInput">
         </search-input>
         <div class="policy">
