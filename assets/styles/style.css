@@ -1345,11 +1345,6 @@ body {
     -ms-flex-align: center;
     align-items: center;
     height: calc(100vh - 80px);
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    left: 0;
-    right: 0;
 }
 .main-preloader--off {
     display: none;
