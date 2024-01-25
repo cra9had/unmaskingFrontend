@@ -1380,6 +1380,13 @@ body {
     visibility: hidden;
 }
 
+#__nuxt {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    scroll-behavior: smooth;
+}
+
 @-webkit-keyframes eye1 {
     from {
         -webkit-transform: rotate(-260deg) translate(0, -56px);
