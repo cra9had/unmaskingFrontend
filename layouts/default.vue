@@ -9,15 +9,18 @@
 
 
   </router-view>
+  <footer v-if="pageLoading"></footer>
 </template>
 
 <script>
 import PageLoader from "@/components/PageLoader.vue";
+import Footer from "~/components/Footer.vue";
 
 export default {
   emits: ['auth'],
   components: {
     PageLoader,
+    Footer
   },
   data() {
     return {
