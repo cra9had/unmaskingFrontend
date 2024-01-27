@@ -76,7 +76,9 @@ export default {
           this.IsAuthenticated = false;
           localStorage.removeItem("token");
         }
-        this.pageLoading = false;
+        this.$nextTick(() => {
+          this.pageLoading = false;
+        });
       }
     },
   },
