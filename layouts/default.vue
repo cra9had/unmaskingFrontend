@@ -30,7 +30,9 @@ export default {
       const token = localStorage.getItem("token");
       if (!token) {
         this.IsAuthenticated = false;
-        this.pageLoading = false
+        this.$nextTick(() => {
+          this.pageLoading = false;
+        });
       } else {
         this.pageLoading = true;
         const response = await fetch(
@@ -49,7 +51,9 @@ export default {
           this.IsAuthenticated = false;
           localStorage.removeItem("token");
         }
-        this.pageLoading = false;
+        this.$nextTick(() => {
+          this.pageLoading = false;
+        });
       }
     },
   },
