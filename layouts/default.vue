@@ -9,7 +9,6 @@
 
 
   </router-view>
-  <footer v-if="pageLoading"></footer>
 </template>
 
 <script>
