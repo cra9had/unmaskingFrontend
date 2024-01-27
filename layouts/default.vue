@@ -62,7 +62,6 @@ export default {
   },
   async beforeMount() {
     await this.getUserDetails();
-    this.pageLoading = false
   },
 };
 </script>
