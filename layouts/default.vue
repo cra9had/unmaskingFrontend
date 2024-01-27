@@ -4,6 +4,7 @@
       :IsAuthenticated="IsAuthenticated"
       :pageLoading="pageLoading"
       v-model:UserDetails="UserDetails"
+      v-show="!pageLoading"
   >
 
 
