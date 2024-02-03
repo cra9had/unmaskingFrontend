@@ -24,12 +24,12 @@
         <img
             class="left-mask"
             src="@/assets/img/left-mask.webp"
-            alt="маска"
+            alt="пробив"
         />
         <img
             class="right-mask"
             src="@/assets/img/right-mask.webp"
-            alt="маска"
+            alt="пробить номер"
         />
         <h1 class="home-default__title">Кто звонил?</h1>
         <h2 class="home-default__subtitle">
@@ -63,7 +63,7 @@
         <div class="telegram-subscription__image">
           <img
               src="@/assets/img/airplane.webp"
-              alt="бумажный самолетик"
+              alt="кто звонил"
           />
         </div>
 
@@ -90,7 +90,7 @@
           <img
               class="result__notfound-img"
               src="@/assets/img/result-notfound.webp"
-              alt="результат не найден"
+              alt="чей номер"
           />
           <p class="result__notfound-title">
             Ничего не найдено, попробуйте изменить данные
@@ -242,28 +242,6 @@
               @updateUserDetails="updateUserDetails"></buy-search>
   <buy-popup v-model:buy-popup-opened="buyPopupOpened"></buy-popup>
   <Footer>
-<!--    <section class="telegram-subscription" v-if="searchStatus===0 && !UserDetails.bonus_used">-->
-<!--      <div class="container telegram-subscription__inner">-->
-<!--        <div class="telegram-subscription__image">-->
-<!--          <img-->
-<!--              src="~@/assets/img/airplane.webp"-->
-<!--              alt="бумажный самолетик"-->
-<!--          />-->
-<!--        </div>-->
-
-<!--        <p class="telegram-subscription__title darts-element">-->
-<!--          Подпишитесь на наш телеграмм канал и получите-->
-<!--          <span>1</span> бесплатный пробив-->
-<!--        </p>-->
-<!--        <button-->
-<!--            type="button"-->
-<!--            class="white-button telegram-subscription__button"-->
-<!--            @click="gotToTelegram"-->
-<!--        >-->
-<!--          Получить бонус-->
-<!--        </button>-->
-<!--      </div>-->
-<!--    </section>-->
   </Footer>
 </template>
 
