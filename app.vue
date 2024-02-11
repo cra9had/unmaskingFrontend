@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-
+import "@/assets/styles/style.css"
 
 </script>
 

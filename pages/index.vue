@@ -1,69 +1,43 @@
 <template>
-
-  <navbar :IsAuthenticated="IsAuthenticated" v-if="!pageLoading" @auth="$emit('auth')" @openBuyPopup="openBuyPopup"
-          :UserDetails="UserDetails" ref="navbar"><li class="header-left__item">
-    <a
-        href="#!"
-        id="about"
-        @click="toHowWork"
-    >О нас</a
-    >
-  </li>
+  <navbar
+    :IsAuthenticated="IsAuthenticated"
+    v-if="!pageLoading"
+    @auth="$emit('auth')"
+    @openBuyPopup="openBuyPopup"
+    :UserDetails="UserDetails"
+    ref="navbar"
+    ><li class="header-left__item">
+      <a href="#!" id="about" @click="toHowWork">О нас</a>
+    </li>
     <li class="header-left__item">
-      <a
-          href="#!"
-          id="faq"
-          @click="toFaq"
-      >Частые вопросы</a
-      >
-    </li></navbar>
+      <a href="#!" id="faq" @click="toFaq">Частые вопросы</a>
+    </li></navbar
+  >
 
-  <main class="section-preloader">
+  <div class="section-preloader">
     <section class="home-default">
       <div class="container home-default__inner">
-        <img
-            class="left-mask"
-            src="@/assets/img/left-mask.webp"
-            alt="пробив"
-        />
-        <img
-            class="right-mask"
-            src="@/assets/img/right-mask.webp"
-            alt="пробить номер"
-        />
-        <h1 class="home-default__title">Кто звонил?</h1>
-        <h2 class="home-default__subtitle">
-          Определите звонившего по номеру телефона за пару минут
-        </h2>
-        <p class="home-default__text">
-          Неизвестные номера часто вызывают у нас беспокойство.
-          Если вы хотите узнать, кто звонил, воспользуйтесь нашим
-          сервисом проверки. Обширная база данных позволит вам
-          быстро и легко определить, кому он принадлежит.
-        </p>
-        <search-input v-model:currentSearchType="currentSearchType" @search="search" ref="searchInput">
+<HeroComponent />
+        <search-input
+          v-model:currentSearchType="currentSearchType"
+          @search="search"
+          ref="searchInput"
+        >
         </search-input>
-        <div class="policy">
-                        <span>Нажимая кнопку, вы подтверждаете согласие с
-                        </span>
-          <a href="#">Условиями предоставления услуги</a>
-        </div>
-        <ul class="home-default__list">
-          <li class="home-default__item">
-            100 000 000+ <span>жителей РФ в базе</span>
-          </li>
-          <li class="home-default__item">
-            150000+<span> успешных пробивов</span>
-          </li>
-        </ul>
+      <PolicyComponent />
       </div>
     </section>
-    <section :class="{'telegram-subscription': true, 'telegram-subscription--off': UserDetails?.bonus_used}">
+    <section
+      :class="{
+        'telegram-subscription': true,
+        'telegram-subscription--off': UserDetails?.bonus_used,
+      }"
+    >
       <div class="container telegram-subscription__inner">
         <div class="telegram-subscription__image">
-          <img
-              src="@/assets/img/airplane.webp"
-              alt="кто звонил"
+          <NuxtImg src="/img/airplane.webp" alt="кто звонил"
+
+                   loading="lazy"
           />
         </div>
 
@@ -72,9 +46,9 @@
           <span>1</span> бесплатный пробив
         </p>
         <button
-            type="button"
-            class="white-button telegram-subscription__button"
-            @click="gotToTelegram"
+          type="button"
+          class="white-button telegram-subscription__button"
+          @click="gotToTelegram"
         >
           Получить бонус
         </button>
@@ -83,19 +57,30 @@
     <section class="result" v-if="searchStatus !== 0">
       <div class="container result__container">
         <h4 class="result__title" v-if="searchStatus !== 0">
-          Результаты поиска <span v-if="currentSearchType===0">по номеру {{ $refs.searchInput.phoneNumber }}</span>
+          Результаты поиска
+          <span v-if="currentSearchType === 0"
+            >по номеру {{ $refs.searchInput.phoneNumber }}</span
+          >
         </h4>
-        <searching-loader v-show="searchStatus === 1" ref="searchingLoader"></searching-loader>
-        <section class="result__notfound" v-if="searchStatus===3">
-          <img
-              class="result__notfound-img"
-              src="@/assets/img/result-notfound.webp"
-              alt="чей номер"
+        <searching-loader
+          v-show="searchStatus === 1"
+          ref="searchingLoader"
+        ></searching-loader>
+        <section class="result__notfound" v-if="searchStatus === 3">
+          <NuxtImg
+            class="result__notfound-img"
+            src="/img/result-notfound.webp"
+            alt="чей номер"
+            loading="lazy"
+
           />
           <p class="result__notfound-title">
             Ничего не найдено, попробуйте изменить данные
           </p>
-          <button class="button result__notfound-button" @click="$refs.navbar.scroll()">
+          <button
+            class="button result__notfound-button"
+            @click="$refs.navbar.scroll()"
+          >
             Попробовать еще
           </button>
         </section>
@@ -104,81 +89,89 @@
             <li class="result-item__title">
               <h5>Персональная информация</h5>
             </li>
-            <li class="result-item main__page-result__address" v-if="personData.fullname">
-              <p class="result-item__descript">
-                ФИО:
-              </p>
+            <li
+              class="result-item main__page-result__address"
+              v-if="personData.fullname"
+            >
+              <p class="result-item__descript">ФИО:</p>
               <div class="address-wrapper">
-              <span class="result-item__info">
-                {{ personData.fullname }}
-              </span>
+                <span class="result-item__info">
+                  {{ personData.fullname }}
+                </span>
               </div>
             </li>
-            <li class="result-item main__page-result__address" v-if="personData.birthday">
-              <p class="result-item__descript">
-                Дата рождения:
-              </p>
+            <li
+              class="result-item main__page-result__address"
+              v-if="personData.birthday"
+            >
+              <p class="result-item__descript">Дата рождения:</p>
               <div class="address-wrapper">
-              <span class="result-item__info">
-                {{ personData.birthday }}
-              </span>
+                <span class="result-item__info">
+                  {{ personData.birthday }}
+                </span>
               </div>
             </li>
 
-            <li class="result-item main__page-result__address" v-if="personData.email">
-              <p class="result-item__descript">
-                Почта:
-              </p>
+            <li
+              class="result-item main__page-result__address"
+              v-if="personData.email"
+            >
+              <p class="result-item__descript">Почта:</p>
               <div class="address-wrapper">
-              <span class="result-item__info">
-                {{ personData.email }}
-              </span>
+                <span class="result-item__info">
+                  {{ personData.email }}
+                </span>
               </div>
             </li>
-            <li class="result-item main__page-result__address" v-if="personData.car_number">
-              <p class="result-item__descript">
-                Водительские права:
-              </p>
+            <li
+              class="result-item main__page-result__address"
+              v-if="personData.car_number"
+            >
+              <p class="result-item__descript">Водительские права:</p>
               <div class="address-wrapper">
-              <span class="result-item__info">
-                {{ personData.car_number }}
-              </span>
+                <span class="result-item__info">
+                  {{ personData.car_number }}
+                </span>
               </div>
             </li>
-            <li class="result-item main__page-result__address" v-if="personData.passport">
-              <p class="result-item__descript">
-                Паспорт:
-              </p>
+            <li
+              class="result-item main__page-result__address"
+              v-if="personData.passport"
+            >
+              <p class="result-item__descript">Паспорт:</p>
               <div class="address-wrapper">
-              <span class="result-item__info">
-                {{ personData.passport }}
-              </span>
+                <span class="result-item__info">
+                  {{ personData.passport }}
+                </span>
               </div>
             </li>
-            <li class="result-item main__page-result__address" v-if="personData.insurance">
-              <p class="result-item__descript">
-                СНИЛС:
-              </p>
+            <li
+              class="result-item main__page-result__address"
+              v-if="personData.insurance"
+            >
+              <p class="result-item__descript">СНИЛС:</p>
               <div class="address-wrapper">
-              <span class="result-item__info">
-                {{ personData.insurance }}
-              </span>
+                <span class="result-item__info">
+                  {{ personData.insurance }}
+                </span>
               </div>
             </li>
-            <li class="result-item main__page-result__address" v-if="personData.inn">
-              <p class="result-item__descript">
-                ИНН:
-              </p>
+            <li
+              class="result-item main__page-result__address"
+              v-if="personData.inn"
+            >
+              <p class="result-item__descript">ИНН:</p>
               <div class="address-wrapper">
-              <span class="result-item__info">
-                {{ personData.inn }}
-              </span>
+                <span class="result-item__info">
+                  {{ personData.inn }}
+                </span>
               </div>
             </li>
-            <li class="result-item main__page-result__address" v-if="personData.possibles_addresses">
-              <p class="result-item__descript">
-                Возможные адреса:
-              </p>
+            <li
+              class="result-item main__page-result__address"
+              v-if="personData.possibles_addresses"
+            >
+              <p class="result-item__descript">Возможные адреса:</p>
               <div class="address-wrapper">
                 <address class="result-item__info">
                   {{ personData.possibles_addresses }}
@@ -186,28 +179,33 @@
               </div>
             </li>
           </ul>
-          <ul class="result-list main-page__result-list" v-if="personData.phone_number">
+          <ul
+            class="result-list main-page__result-list"
+            v-if="personData.phone_number"
+          >
             <li class="result-item__title">
               <h5>Социальные сети</h5>
             </li>
-            <li class="result-item main__page-result__address" v-if="personData.whatsapp">
-              <p class="result-item__descript">
-                WhatsApp:
-              </p>
+            <li
+              class="result-item main__page-result__address"
+              v-if="personData.whatsapp"
+            >
+              <p class="result-item__descript">WhatsApp:</p>
               <div class="address-wrapper">
-              <span class="result-item__info">
-                {{ personData.whatsapp }}
-              </span>
+                <span class="result-item__info">
+                  {{ personData.whatsapp }}
+                </span>
               </div>
             </li>
-            <li class="result-item main__page-result__address" v-if="personData.telegram">
-              <p class="result-item__descript">
-                Telegram:
-              </p>
+            <li
+              class="result-item main__page-result__address"
+              v-if="personData.telegram"
+            >
+              <p class="result-item__descript">Telegram:</p>
               <div class="address-wrapper">
-              <span class="result-item__info">
-                {{ personData.telegram }}
-              </span>
+                <span class="result-item__info">
+                  {{ personData.telegram }}
+                </span>
               </div>
             </li>
           </ul>
@@ -216,47 +214,43 @@
               Открыть за <span>1</span>
             </button>
             <a
-                href="https://t.me/+SDfzDeobb09mOWU6"
-                class="transparent-button result__button-transparent"
-                v-if="!UserDetails.bonus_used"
-            >Получить бонус</a
+              href="https://t.me/+SDfzDeobb09mOWU6"
+              class="transparent-button result__button-transparent"
+              v-if="!UserDetails.bonus_used"
+              >Получить бонус</a
             >
           </div>
           <div class="policy main-page__policy">
-                            <span
-                            >Нажимая кнопку, вы подтверждаете согласие с
-                            </span>
+            <span>Нажимая кнопку, вы подтверждаете согласие с </span>
             <a href="#">Условиями предоставления услуги</a>
           </div>
-
         </section>
       </div>
     </section>
     <faq></faq>
-
-  </main>
-  <buy-search v-model:warning-popup-opened="warningPopupOpened"
-              :current-search-pk="currentSearchPk"
-              :user-details="UserDetails"
-              @updateData="updateData"
-              @updateUserDetails="updateUserDetails"></buy-search>
+  </div>
+  <buy-search
+    v-model:warning-popup-opened="warningPopupOpened"
+    :current-search-pk="currentSearchPk"
+    :user-details="UserDetails"
+    @updateData="updateData"
+    @updateUserDetails="updateUserDetails"
+  ></buy-search>
   <buy-popup v-model:buy-popup-opened="buyPopupOpened"></buy-popup>
-  <Footer>
-  </Footer>
+  <Footer> </Footer>
 </template>
 
-
 <script>
-import Navbar from "@/components/Navbar.vue"
-import SearchInput from "@/components/SearchInput.vue"
+
+import Navbar from "@/components/Navbar.vue";
+import SearchInput from "@/components/SearchInput.vue";
 import Footer from "@/components/Footer.vue";
-import SearchingLoader from "@/components/SearchingLoader.vue"
+import SearchingLoader from "@/components/SearchingLoader.vue";
 import BuyPopup from "@/components/BuyPopup.vue";
 import BuySearch from "@/components/BuySearch.vue";
 import Faq from "@/components/faq/Faq.vue";
 
 export default {
-
   data() {
     return {
       searchStatus: 0, // 0 - Not searching, 1 - Search in progress, 2 - Found, 3 - Not Found
@@ -264,21 +258,21 @@ export default {
       intervalId: null,
       warningPopupOpened: false,
       buyPopupOpened: false,
-      currentSearchPk: 0
-    }
+      currentSearchPk: 0,
+    };
   },
   props: {
     pageLoading: {
       type: Boolean,
-      default: false
+      default: false,
     },
     IsAuthenticated: {
       type: Boolean,
       default: false,
     },
     UserDetails: {
-      type: Object
-    }
+      type: Object,
+    },
   },
   components: {
     Navbar,
@@ -287,109 +281,124 @@ export default {
     SearchingLoader,
     BuyPopup,
     BuySearch,
-    Faq
+    Faq,
   },
   methods: {
     updateData(data) {
-      this.personData = data
+      this.personData = data;
     },
     updateUserDetails(details) {
-      this.$emit('update:UserDetails', details)
+      this.$emit("update:UserDetails", details);
     },
     openBuyPopup() {
-      this.buyPopupOpened = true
+      this.buyPopupOpened = true;
     },
     gotToTelegram() {
-      document.location.href='https://t.me/+SDfzDeobb09mOWU6'
+      document.location.href = "https://t.me/+SDfzDeobb09mOWU6";
     },
     async getSearchResult(pk) {
-      const token = localStorage.getItem("token")
-      const endpoint = this.$config.public.API_BASE_URL + "search/result/" + pk + "/"
+      const token = localStorage.getItem("token");
+      const endpoint =
+        this.$config.public.API_BASE_URL + "search/result/" + pk + "/";
       const response = await fetch(endpoint, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": "Token " + token
+          Authorization: "Token " + token,
         },
-      })
+      });
       if (response.status === 204) {
       } else if (response.status === 200) {
-        const data = await response.json()
+        const data = await response.json();
         if (data.status === 404) {
-          this.searchStatus = 3
-          clearInterval(this.intervalId)
+          this.searchStatus = 3;
+          clearInterval(this.intervalId);
         } else {
-          this.searchStatus = 2
-          this.personData = data.result
-          clearInterval(this.intervalId)
+          this.searchStatus = 2;
+          this.personData = data.result;
+          clearInterval(this.intervalId);
         }
       } else {
-        this.searchStatus = 0
-        clearInterval(this.intervalId)
+        this.searchStatus = 0;
+        clearInterval(this.intervalId);
       }
     },
 
     async search() {
-      const token = localStorage.getItem("token")
+      const token = localStorage.getItem("token");
       if (!token) {
-        return this.$refs.navbar.openAuthPopup()
+        return this.$refs.navbar.openAuthPopup();
       }
-      let searchQuery = {}
+      let searchQuery = {};
       if (this.currentSearchType === 0) {
         searchQuery = {
-          phone_number: this.$refs.searchInput.phoneNumber.replace(/\D/g, '')
-        }
+          phone_number: this.$refs.searchInput.phoneNumber.replace(/\D/g, ""),
+        };
       } else if (this.currentSearchType === 1) {
         searchQuery = {
           fullname: this.$refs.searchInput.fullname,
-          birthday: this.$refs.searchInput.birthday
-        }
+          birthday: this.$refs.searchInput.birthday,
+        };
       }
-      const endpoint = this.$config.public.API_BASE_URL + "search/"
+      const endpoint = this.$config.public.API_BASE_URL + "search/";
       const response = await fetch(endpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": "Token " + token
+          Authorization: "Token " + token,
         },
         body: JSON.stringify({
-          "search_type": this.currentSearchType,
-          "search_query": searchQuery
-        })
-      })
-      const data = await response.json()
+          search_type: this.currentSearchType,
+          search_query: searchQuery,
+        }),
+      });
+      const data = await response.json();
       if (response.status === 201) {
-        this.searchStatus = 1  // Search in progress
+        this.searchStatus = 1; // Search in progress
         this.$nextTick(() => {
-          this.$refs.searchingLoader.scroll()
+          this.$refs.searchingLoader.scroll();
         });
-        this.currentSearchPk = data.pk
-        this.intervalId = setInterval(() => this.getSearchResult(data.pk), 2000);
+        this.currentSearchPk = data.pk;
+        this.intervalId = setInterval(
+          () => this.getSearchResult(data.pk),
+          2000
+        );
       }
     },
     buySearch() {
       if (this.UserDetails.available_searches > 0) {
-        this.warningPopupOpened = true
+        this.warningPopupOpened = true;
       } else {
-        this.buyPopupOpened = true
+        this.buyPopupOpened = true;
       }
     },
     toFaq() {
-      document.querySelector('.faq').scrollIntoView({block: 'start', inline: 'start'})
+      document
+        .querySelector(".faq")
+        .scrollIntoView({ block: "start", inline: "start" });
     },
     toHowWork() {
-      document.querySelector('.howwork').scrollIntoView({block: 'start', inline: 'start'})
-    }
-  }
-}
+      document
+        .querySelector(".howwork")
+        .scrollIntoView({ block: "start", inline: "start" });
+    },
+  },
+};
 </script>
 <script setup>
-name: "index"
+import HeroComponent from "~/components/HeroComponent.vue";
+import PolicyComponent from "~/components/PolicyComponent.vue";
+
+name: "index";
 
 definePageMeta({
   layout: "default",
 });
 </script>
 <style>
-
+.left-mask,
+.right-mask {
+  width: auto !important;
+  object-fit: contain !important;
+}
 </style>

@@ -9,6 +9,7 @@
           class="faq-button"
           :class="{'faq-button--active': opened}"
           @click="toggle"
+          aria-label="toggle"
       ></button>
     </div>
     <div

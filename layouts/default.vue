@@ -1,10 +1,11 @@
 <template>
-  <page-loader v-show="pageLoading"></page-loader>
+  <page-loader v-if="pageLoading"></page-loader>
   <router-view
+      v-else
       :IsAuthenticated="IsAuthenticated"
       :pageLoading="pageLoading"
       v-model:UserDetails="UserDetails"
-      v-show="!pageLoading"
+
   >
 
 
@@ -27,6 +28,14 @@ export default {
       IsAuthenticated: false,
       UserDetails: {},
     };
+  },
+
+  updated() {
+    if (this.pageLoading) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "visible";
+    }
   },
   methods: {
     async getUserDetails() {
@@ -73,6 +82,8 @@ export default {
   padding: 0px;
   margin: 0px;
   border: none;
+  font-family: Roboto , sans-serif;
+
 }
 
 *,
@@ -260,7 +271,7 @@ body {
 .darts-element > span::after {
   content: "";
   position: absolute;
-  background-image: url("@/assets/img/icons/darts.webp");
+  background-image: url("/img/icons/darts.webp");
   background-size: 24px 24px;
   width: 24px;
   height: 24px;
@@ -359,13 +370,13 @@ body {
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  background-image: url("@/assets/img/icons/eye-close.webp");
+  background-image: url("/img/icons/eye-close.webp");
   width: 24px;
   height: 24px;
   background-size: 24px 24px;
 }
 .input-password__control.input-password__control--open {
-  background-image: url("@/assets/img/icons/eye-open.webp");
+  background-image: url("/img/icons/eye-open.webp");
 }
 .input-password__wrapper {
   position: relative;
@@ -402,8 +413,7 @@ body {
   background-color: #252525;
   padding: 20px 0;
 }
-.header-preloader,
-.section-preloader {
+.header-preloader{
   display: block;
 }
 .header-preloader--off,
@@ -448,7 +458,7 @@ body {
   padding: 6px 12px 6px 40px;
   background-color: #1b1b1e;
   border-radius: 46px;
-  background-image: url("@/assets/img/icons/darts.webp");
+  background-image: url("/img/icons/darts.webp");
   background-size: 24px 24px;
   background-repeat: no-repeat;
   background-position-x: 8px;
@@ -520,7 +530,7 @@ body {
 .menu__button::after {
   content: "";
   position: absolute;
-  background-image: url("@/assets/img/icons/caret.webp");
+  background-image: url("/img/icons/caret.webp");
   background-size: cover;
   width: 24px;
   height: 24px;
@@ -551,7 +561,7 @@ body {
   margin-top: 16px;
 }
 .menu__list-item.profile {
-  background-image: url("@/assets/img/icons/mask.webp");
+  background-image: url("/img/icons/mask.webp");
   background-size: 24px 24px;
   background-repeat: no-repeat;
   background-position-y: center;
@@ -575,7 +585,7 @@ body {
   color: #fff;
 }
 .menu__list-item.logout {
-  background-image: url("@/assets/img/icons/logout.webp");
+  background-image: url("/img/icons/logout.webp");
   background-size: 24px 24px;
   background-repeat: no-repeat;
   background-position-y: center;
@@ -778,7 +788,7 @@ body {
 .main-page__result-button > span::after {
   content: "";
   position: absolute;
-  background-image: url("@/assets/img/icons/darts.webp");
+  background-image: url("/img/icons/darts.webp");
   background-size: 24px 24px;
   background-repeat: no-repeat;
   width: 24px;
@@ -795,7 +805,7 @@ body {
 .result-list__button > span::after {
   content: "";
   position: absolute;
-  background-image: url("@/assets/img/icons/darts-dark.webp");
+  background-image: url("/img/icons/darts-dark.webp");
   background-size: 24px 24px;
   background-repeat: no-repeat;
   width: 24px;
@@ -937,7 +947,7 @@ body {
 .account__menu-data::after {
   content: "";
   position: absolute;
-  background-image: url("@/assets/img/icons/mask.webp");
+  background-image: url("/img/icons/mask.webp");
   width: 24px;
   height: 24px;
   background-repeat: no-repeat;
@@ -961,7 +971,7 @@ body {
 .account__menu-history::after {
   content: "";
   position: absolute;
-  background-image: url("@/assets/img/icons/wallet.webp");
+  background-image: url("/img/icons/wallet.webp");
   width: 24px;
   height: 24px;
   background-repeat: no-repeat;
@@ -1064,7 +1074,7 @@ body {
   padding: 8px 24px;
   width: 162px;
   height: 40px;
-  background-image: url("@/assets/img/icons/white-caret.webp");
+  background-image: url("/img/icons/white-caret.webp");
   background-repeat: no-repeat;
   background-position-y: 8px;
   background-position-x: 111px;
@@ -1079,21 +1089,21 @@ body {
 .history-person__button.history-person__button--active {
   background-color: #fff;
   color: #121212;
-  background-image: url("@/assets/img/icons/black-caret.webp");
+  background-image: url("/img/icons/black-caret.webp");
   background-repeat: no-repeat;
   background-position-y: 7px;
   background-position-x: 111px;
   background-size: 24px 24px;
 }
 .history-person__button:hover {
-  background-image: url("@/assets/img/icons/caret-hover.webp");
+  background-image: url("/img/icons/caret-hover.webp");
   background-repeat: no-repeat;
   background-position-y: 8px;
   background-position-x: 111px;
   background-size: 24px 24px;
 }
 .history-person__button.history-person__button--active:hover {
-  background-image: url("@/assets/img/icons/black-caret.webp");
+  background-image: url("/img/icons/black-caret.webp");
   background-size: 24px 24px;
 }
 .history-person__list {
@@ -1323,7 +1333,7 @@ body {
 }
 
 .popup__close {
-  background-image: url("@/assets/img/icons/close.webp");
+  background-image: url("/img/icons/close.webp");
   background-size: 20px 20px;
   background-repeat: no-repeat;
   position: absolute;
@@ -1561,7 +1571,14 @@ body {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  height: calc(100vh - 80px);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #1b1b1e;
+  z-index: 9;
+  overflow:hidden;
 }
 .main-preloader--off {
   display: none;
@@ -1868,7 +1885,7 @@ body {
 .text-preloader__element--1 {
   position: relative;
   width: 350px;
-  background-image: url("@/assets/img/preloader-1.webp");
+  background-image: url("/img/preloader-1.webp");
   background-repeat: no-repeat;
   background-size: contain;
   margin: 12px 0;
@@ -1876,27 +1893,27 @@ body {
 
 .text-preloader__element--2 {
   width: 300px;
-  background-image: url("@/assets/img/preloader-2.webp");
+  background-image: url("/img/preloader-2.webp");
 }
 .text-preloader__element--3 {
   width: 250px;
-  background-image: url("@/assets/img/preloader-3.webp");
+  background-image: url("/img/preloader-3.webp");
 }
 .text-preloader__element--4 {
   width: 200px;
-  background-image: url("@/assets/img/preloader-4.webp");
+  background-image: url("/img/preloader-4.webp");
 }
 .text-preloader__element--5 {
   width: 300px;
-  background-image: url("@/assets/img/preloader-5.webp");
+  background-image: url("/img/preloader-5.webp");
 }
 .text-preloader__element--6 {
   width: 250px;
-  background-image: url("@/assets/img/preloader-6.webp");
+  background-image: url("/img/preloader-6.webp");
 }
 .text-preloader__element--7 {
   width: 800px;
-  background-image: url("@/assets/img/preloader-7.webp");
+  background-image: url("/img/preloader-7.webp");
 }
 @keyframes preloadAnim {
   0% {
@@ -2178,7 +2195,7 @@ body {
 .mobile-menu__item-link::after {
   content: "";
   position: absolute;
-  background-image: url("@/assets/img/icons/caret.webp");
+  background-image: url("/img/icons/caret.webp");
   background-size: 24px 24px;
   width: 24px;
   height: 24px;
@@ -2197,11 +2214,11 @@ body {
   text-align: left;
 }
 .mobile-menu__item-link--data {
-  background-image: url("@/assets/img/icons/mask.webp");
+  background-image: url("/img/icons/mask.webp");
   background-size: 24px 24px;
 }
 .mobile-menu__item-link--history {
-  background-image: url("@/assets/img/icons/wallet.webp");
+  background-image: url("/img/icons/wallet.webp");
   background-size: 24px 24px;
 }
 .mobile-menu__item-out {
@@ -2217,7 +2234,7 @@ body {
 .mobile-menu__item-out > a:after {
   content: "";
   position: absolute;
-  background-image: url("@/assets/img/icons/logout.webp");
+  background-image: url("/img/icons/logout.webp");
   background-repeat: no-repeat;
   background-size: 24px 24px;
   width: 24px;
@@ -2838,15 +2855,18 @@ body {
   margin-left: auto;
   margin-right: auto;
   opacity: 1;
+  font-family: Roboto , sans-serif;
+
 }
 .home-default__text {
-  color: #fff;
+  color:#8D8D8F;
+  //color:#fff;
   text-align: center;
   font-size: 16px;
   font-weight: 400;
-  line-height: 150%;
-  opacity: 0.5;
+  line-height: 24px;
   margin-bottom: 80px;
+  font-family: Roboto , sans-serif;
 }
 .home-default__inner {
   max-width: 720px;
@@ -3020,7 +3040,7 @@ body {
   margin-right: 20px;
 }
 .faq-button {
-  background-image: url("@/assets/img/icons/caret.webp");
+  background-image: url("/img/icons/caret.webp");
   background-repeat: no-repeat;
   background-size: cover;
   min-width: 24px;
@@ -3093,7 +3113,7 @@ body {
   color: #121212;
 }
 .main-page__result-button > span::after {
-  background-image: url(@/assets/img/icons/darts-dark.webp);
+  background-image: url(/img/icons/darts-dark.webp);
 }
 .result__container {
   max-width: 1140px;
@@ -3126,16 +3146,16 @@ body {
   margin-left: 24px;
 }
 .mobile-menu__item-link--data {
-  background-image: url("@/assets/img/lock.webp");
+  background-image: url("/img/lock.webp");
 }
 .mobile-menu__item-link--history {
-  background-image: url("@/assets/img/history.webp");
+  background-image: url("/img/history.webp");
 }
 .account__menu-data::after {
-  background-image: url("@/assets/img/lock.webp");
+  background-image: url("/img/lock.webp");
 }
 .account__menu-history::after {
-  background-image: url("@/assets/img/history.webp");
+  background-image: url("/img/history.webp");
 }
 .history-person__none-title {
   color: #ddd;
@@ -3213,6 +3233,8 @@ body {
 @media (max-width: 870px) {
   .howwork-item__img {
     max-width: 230px;
+    object-fit: contain;
+    aspect-ratio: auto;
   }
   .howwork-arrow {
     max-width: 120px;

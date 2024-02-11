@@ -14,10 +14,10 @@
       <a
           href="#"
           class="footer__telegram"
-      ><img
+      ><NuxtImg
           width="40"
           height="40"
-          src="@/assets/img/icons/telegram.webp"
+          src="/img/icons/telegram.webp"
           alt="телеграм"
       /></a>
     </div>

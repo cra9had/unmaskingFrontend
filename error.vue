@@ -10,9 +10,9 @@
   <main>
     <section class="not-found">
       <div class="container not-found__inner">
-        <img
+        <NuxtImg
             class="not-found__image"
-            src="~@/assets/img/notfound.webp"
+            src="/img/notfound.webp"
             alt="изображение"
         />
 

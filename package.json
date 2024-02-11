@@ -16,6 +16,7 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
+    "@nuxt/image": "^1.1.0",
     "@nuxtjs/robots": "^3.0.0",
     "axios": "^1.6.5",
     "prettier": "^3.2.4",

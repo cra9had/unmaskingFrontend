@@ -65,6 +65,7 @@
             {{ loginError }}
           </p>
         </div>
+
                 <captcha class="g-recaptcha" v-model:token="loginCaptchaToken" ref="loginCaptcha"></captcha>
 
         <button type="submit" class="button popup__button">Войти</button>

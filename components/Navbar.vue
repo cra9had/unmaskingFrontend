@@ -51,10 +51,10 @@
             :class="{ menu__button: true, 'menu__button--open': !menuOpened }"
             @click="this.menuOpened = !this.menuOpened"
           >
-            <img
+            <NuxtImg
               width="36"
               height="36"
-              src="@/assets/img/icons/mask.webp"
+              src="/img/icons/mask.webp"
               alt="маска"
             />
             {{ UserDetails.username }}

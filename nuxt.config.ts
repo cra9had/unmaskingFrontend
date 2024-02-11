@@ -13,12 +13,12 @@ export default defineNuxtConfig({
         {
           name: "description",
           content:
-             "Узнайте кто звонил по номеру телефона. Обширная база данных позволит пробить номер и проверить кому принадлежит телефон. Проверка информации о человеке по номеру телефона."
-                },
+            "Узнайте кто звонил по номеру телефона. Обширная база данных позволит пробить номер и проверить кому принадлежит телефон. Проверка информации о человеке по номеру телефона.",
+        },
         {
           name: "keywords",
           content:
-              "unmasking , unmasking.net , Узнайте кто звонил по номеру телефона. Обширная база данных позволит пробить номер и проверить кому принадлежит телефон. Проверка информации о человеке по номеру телефона.",
+            "unmasking , unmasking.net , Узнайте кто звонил по номеру телефона. Обширная база данных позволит пробить номер и проверить кому принадлежит телефон. Проверка информации о человеке по номеру телефона.",
         },
         {
           name: "canonical",
@@ -30,13 +30,12 @@ export default defineNuxtConfig({
         },
         {
           property: "og:title",
-          content:
-              "Пробить номер - узнать кто звонил по номеру телефона",
+          content: "Пробить номер - узнать кто звонил по номеру телефона",
         },
         {
           property: "og:description",
           content:
-              "Узнайте кто звонил по номеру телефона. Обширная база данных позволит пробить номер и проверить кому принадлежит телефон. Проверка информации о человеке по номеру телефона.",
+            "Узнайте кто звонил по номеру телефона. Обширная база данных позволит пробить номер и проверить кому принадлежит телефон. Проверка информации о человеке по номеру телефона.",
         },
         {
           property: "og:type",
@@ -57,32 +56,17 @@ export default defineNuxtConfig({
         {
           name: "twitter:description",
           content:
-             "Узнайте кто звонил по номеру телефона. Обширная база данных позволит пробить номер и проверить кому принадлежит телефон. Проверка информации о человеке по номеру телефона."
-               },
+            "Узнайте кто звонил по номеру телефона. Обширная база данных позволит пробить номер и проверить кому принадлежит телефон. Проверка информации о человеке по номеру телефона.",
+        },
         {
           name: "twitter:image",
           content: "./favicon.ico",
-        }
-      ],
-      link: [
-        {
-          rel: 'preconnect',
-          href: 'https://fonts.googleapis.com',
-        },
-        {
-          rel: 'preconnect',
-          href: 'https://fonts.gstatic.com',
-          crossorigin: true,
-        },
-        {
-          href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Roboto:wght@500&display=swap',
-          rel: 'stylesheet',
-          async: true,
         },
       ],
+
       script: [
         {
-          type: 'text/javascript',
+          type: "text/javascript",
           async: true,
           innerHTML: `
           setTimeout(function () {
@@ -108,28 +92,30 @@ export default defineNuxtConfig({
         `,
         },
         {
-          src: 'https://www.google.com/recaptcha/api.js',
+          src: "https://www.google.com/recaptcha/api.js",
           async: true,
         },
       ],
     },
   },
-  modules: ["@nuxtjs/robots" , 'nuxt-simple-sitemap'],
-  robots: process.env.NODE_ENV != 'production' ? {
-    // @ts-ignore
-    UserAgent: '*',
-    Disallow: ''
-  } : {
-    UserAgent: '*',
-    Allow: '*',
-  },
+  modules: ["@nuxtjs/robots", "nuxt-simple-sitemap", "@nuxt/image"],
+  robots:
+    process.env.NODE_ENV != "production"
+      ? {
+          // @ts-ignore
+          UserAgent: "*",
+          Disallow: "",
+        }
+      : {
+          UserAgent: "*",
+          Allow: "*",
+        },
   site: {
-    url: 'https://unmasking.net',
+    url: "https://unmasking.net",
   },
   runtimeConfig: {
     public: {
-      API_BASE_URL:
-          process.env.API_BASE_URL || "https://unmasking.net/api/",
-         },
+      API_BASE_URL: process.env.API_BASE_URL || "https://unmasking.net/api/",
+    },
   },
-})
+});

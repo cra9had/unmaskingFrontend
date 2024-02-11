@@ -19,8 +19,8 @@
             <h2 class="account__mobile-title">Персональные данные</h2>
             <aside class="account__menu">
               <div class="account-name">
-                <img
-                    src="@/assets/img/icons/mask.webp"
+                <NuxtImg
+                    src="/img/icons/mask.webp"
                     alt="маска"
                 />
                 {{ UserDetails.username }}
