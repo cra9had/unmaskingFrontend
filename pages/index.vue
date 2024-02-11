@@ -35,7 +35,7 @@
     >
       <div class="container telegram-subscription__inner">
         <div class="telegram-subscription__image">
-          <NuxtImg src="/img/airplane.webp" alt="кто звонил"
+          <img src="/img/airplane.webp" alt="кто звонил"
 
                    loading="lazy"
           />
@@ -67,7 +67,7 @@
           ref="searchingLoader"
         ></searching-loader>
         <section class="result__notfound" v-if="searchStatus === 3">
-          <NuxtImg
+          <img
             class="result__notfound-img"
             src="/img/result-notfound.webp"
             alt="чей номер"

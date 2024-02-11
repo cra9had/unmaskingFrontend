@@ -14,7 +14,7 @@
       <a
           href="#"
           class="footer__telegram"
-      ><NuxtImg
+      ><img
           width="40"
           height="40"
           src="/img/icons/telegram.webp"

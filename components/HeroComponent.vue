@@ -1,11 +1,11 @@
 <template>
-  <NuxtImg
+  <img
     class="left-mask"
     src="/img/left-mask.webp"
     alt="пробив"
   />
 
-  <NuxtImg
+  <img
     class="right-mask"
     src="/img/right-mask.webp"
     alt="пробить номер"

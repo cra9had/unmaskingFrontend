@@ -14,7 +14,7 @@
               </p>
             </div>
             <div class="howwork-arrow howwork-arrow--left">
-              <NuxtImg
+              <img
                 src="/img/howwork-arrow-1.webp"
                 alt="стрелка"
                 loading="lazy"
@@ -22,7 +22,7 @@
             </div>
           </div>
           <div class="howwork-item__img">
-            <NuxtImg
+            <img
               src="/img/howwork-1.webp"
               alt="карточка 1"
               loading="lazy"
@@ -32,7 +32,7 @@
 
         <li class="howwork-item howwork-item--2">
           <div class="howwork-item__img">
-            <NuxtImg
+            <img
               src="/img/howwork-2.webp"
               alt="карточка 2"
               loading="lazy"
@@ -48,7 +48,7 @@
               </p>
             </div>
             <div class="howwork-arrow howwork-arrow--right">
-              <NuxtImg
+              <img
                 src="/img/howwork-arrow-2.webp"
                 alt="стрелка"
                 loading="lazy"
@@ -69,7 +69,7 @@
             </div>
           </div>
           <div class="howwork-item__img">
-            <NuxtImg
+            <img
               src="/img/howwork-3.webp"
               alt="карточка 3"
               loading="lazy"
@@ -99,25 +99,25 @@
       <ul class="infonumber-list">
         <li class="infonumber-item">
           <div class="infonumber-item__icon">
-            <NuxtImg src="/img/mask.webp" alt="FIO" loading="lazy" />
+            <img src="/img/mask.webp" alt="FIO" loading="lazy" />
           </div>
           <p class="infonumber-item__title">ФИО</p>
         </li>
         <li class="infonumber-item">
           <div class="infonumber-item__icon">
-            <NuxtImg src="/img/snils.webp" alt="SNILS" loading="lazy" />
+            <img src="/img/snils.webp" alt="SNILS" loading="lazy" />
           </div>
           <p class="infonumber-item__title">СНИЛС</p>
         </li>
         <li class="infonumber-item">
           <div class="infonumber-item__icon">
-            <NuxtImg src="/img/passport.webp" alt="PASSPORT" loading="lazy" />
+            <img src="/img/passport.webp" alt="PASSPORT" loading="lazy" />
           </div>
           <p class="infonumber-item__title">Паспорт</p>
         </li>
         <li class="infonumber-item">
           <div class="infonumber-item__icon">
-            <NuxtImg
+            <img
               src="/img/driver-licence.webp"
               alt="PRAVA"
               loading="lazy"
@@ -127,31 +127,31 @@
         </li>
         <li class="infonumber-item">
           <div class="infonumber-item__icon">
-            <NuxtImg src="/img/messanger.webp" alt="messenger" loading="lazy" />
+            <img src="/img/messanger.webp" alt="messenger" loading="lazy" />
           </div>
           <p class="infonumber-item__title">Месседжеры</p>
         </li>
         <li class="infonumber-item">
           <div class="infonumber-item__icon">
-            <NuxtImg src="/img/birth.webp" alt="date birthday" loading="lazy" />
+            <img src="/img/birth.webp" alt="date birthday" loading="lazy" />
           </div>
           <p class="infonumber-item__title">Дата рождения</p>
         </li>
         <li class="infonumber-item">
           <div class="infonumber-item__icon">
-            <NuxtImg src="/img/adress.webp" alt="address" loading="lazy" />
+            <img src="/img/adress.webp" alt="address" loading="lazy" />
           </div>
           <p class="infonumber-item__title">Адрес</p>
         </li>
         <li class="infonumber-item">
           <div class="infonumber-item__icon">
-            <NuxtImg src="/img/inn.webp" alt="inn" loading="lazy" />
+            <img src="/img/inn.webp" alt="inn" loading="lazy" />
           </div>
           <p class="infonumber-item__title">Инн</p>
         </li>
         <li class="infonumber-item">
           <div class="infonumber-item__icon">
-            <NuxtImg
+            <img
               src="/img/car.webp"
               alt="number of the machine"
               loading="lazy"
@@ -161,7 +161,7 @@
         </li>
         <li class="infonumber-item">
           <div class="infonumber-item__icon">
-            <NuxtImg
+            <img
               src="/img/social.webp"
               alt="social networks"
               loading="lazy"
