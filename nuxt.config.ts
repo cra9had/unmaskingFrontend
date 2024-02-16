@@ -47,7 +47,7 @@ export default defineNuxtConfig({
         },
         {
           property: "og:image",
-          content: "./favicon.ico",
+          content: "https://unmasking.net/favicon.ico",
         },
         {
           name: "twitter:title",
@@ -60,7 +60,7 @@ export default defineNuxtConfig({
         },
         {
           name: "twitter:image",
-          content: "./favicon.ico",
+          content: "https://unmasking.net/favicon.ico",
         },
       ],
 
